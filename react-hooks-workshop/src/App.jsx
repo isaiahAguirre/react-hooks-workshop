@@ -9,9 +9,9 @@ function App() {
   const [baseUrl, setBaseUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
   const [pokemonData, setPokemonData] = useState([])
   const [details, setDetails] = useState({})
-  const value = { details, setDetails }
+  const [detailsPage, setDetailsPage] = useState(false)
+  const value = { details, setDetails, detailsPage, setDetailsPage }
 
-//This fetches the pokemon name and specific URL
 useEffect(() => {
     fetch(baseUrl)
       .then(res => res.json())
@@ -25,7 +25,6 @@ useEffect(() => {
     <DetailsContext.Provider value={value}>
       <div className="pageContainer">
         <Pokedex pokemonData = {pokemonData} />
-        <Pokemon pokemonData = {pokemonData}/>
       </div>
      </DetailsContext.Provider>
     </>
