@@ -15,20 +15,20 @@ export default function Pokemon({pokemonData}){
     fetch(pokemonData.url)
       .then(res => res.json())
       .then(data => {
-        // console.log(data.sprites.other.home.front_shiny)
         setdetails(data)
         setPokemonSprite(data.sprites.other.home.front_shiny)
-
       })
   }, [])
 
 return (
   <>
   <Details details = {details} />
-    <div>
-      <img className = 'listName' key={pokemonData.name}  alt='Blank Image' src={pokemonSprite} onClick={() => setDetails(details)}/>
+    <div className='pokeContainer'>
+      <div className='pokeCard'>
+      <img className = 'pokeList' key={pokemonData.name}  alt='Blank Image' src={pokemonSprite}
+      onClick={() => setDetails(details)}/>
       <h2 className='pokeName'>{pokemonData.name}</h2>
-
+      </div>
     </div>
   </>
 )
