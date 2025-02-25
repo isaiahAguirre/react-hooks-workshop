@@ -60,7 +60,6 @@
     width: 100px;
     height: 75px;
     justify-self: start;
-    background-color: white;
 
   }
 
@@ -79,11 +78,8 @@
 
   #pokemonImage {
     grid-column-start: 1;
-    position: fixed;
     grid-row:2;
     height: 400px;
-    top: 22%;
-    left: 27%;
   }
 
   #detailsName {

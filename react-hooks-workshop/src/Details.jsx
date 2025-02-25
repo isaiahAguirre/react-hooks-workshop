@@ -1,6 +1,8 @@
 import {useContext} from "react"
 import DetailsContext from "./DetailsContext"
 import PokemonLogo from './Images/pokemonLogo.png'
+import PokemonArrow from './Images/pokemon-arrow.png'
+
 
 export default function Details() {
     const {details, setDetailsPage} = useContext(DetailsContext)
@@ -11,7 +13,7 @@ export default function Details() {
     return (<>
       <div className={`container ${details.types[0].type.name} detailsTrue`} id='detailsContainer'>
         {/* <button id='goBackBtn' onClick = {() => setDetailsPage(false)}>Go Back</button> */}
-        <input type='image' id='goBackBtn' src={PokemonLogo} onClick = {() => setDetailsPage(false)} />
+        <input type='image' id='goBackBtn' src={PokemonArrow} onClick = {() => setDetailsPage(false)} />
         <div className="name-img">
           <h1 id='detailsName'>{details.forms[0].name.toUpperCase()}</h1>
           <img id='pokemonImage' alt='pokemon' src={details.sprites.other.home.front_default} />
