@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Pokedex from './Pokedex'
 import DetailsContext from "./DetailsContext";
-import Details from "./Details";
+import Details from './Details';
+import Pokemon from './Pokemon';
 
 function App() {
   const [baseUrl, setBaseUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
-  const [pokemonUrl, setPokemonUrl] = useState([])
   const [pokemonData, setPokemonData] = useState([])
   const [details, setDetails] = useState({})
-  const value = { details, setDetails }
+  const [detailsPage, setDetailsPage] = useState(false)
+  const value = { details, setDetails, detailsPage, setDetailsPage }
 
-//This fetches the pokemon name and specific URL
 useEffect(() => {
     fetch(baseUrl)
       .then(res => res.json())
@@ -20,12 +20,12 @@ useEffect(() => {
       })
   }, [])
 
-  //console.log(pokemonData[0].name)
   return (
     <>
     <DetailsContext.Provider value={value}>
+      <div className="pageContainer">
         <Pokedex pokemonData = {pokemonData} />
-
+      </div>
      </DetailsContext.Provider>
     </>
   )
